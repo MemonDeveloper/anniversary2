@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary My Love</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .anniversary-title {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+            color: #ff69b4;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ff69b4, #ffb6c1, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .days-count {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 600px;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: flex;
+            position: relative;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-image {
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px 0 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 105, 180, 0.2), rgba(255, 182, 193, 0.2));
+            z-index: 1;
+        }
+
+        .slide-content {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(10, 10, 30, 0.8);
+            border-radius: 0 20px 20px 0;
+            position: relative;
+        }
+
+        .slide-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(255, 215, 0, 0.1));
+            z-index: 0;
+            border-radius: 0 20px 20px 0;
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff69b4;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            border-bottom: 2px solid #ff69b4;
+            padding-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #f0f0f0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poem {
+            font-style: italic;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 3px solid #ff69b4;
+            background: rgba(255, 105, 180, 0.1);
+            border-radius: 0 10px 10px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .promise {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .promise-icon {
+            margin-right: 15px;
+            color: #ff69b4;
+            font-size: 1.5rem;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 105, 180, 0.7);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 105, 180, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .slider-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #ff69b4;
+            transform: scale(1.2);
+            box-shadow: 0 0 10px #ff69b4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #ffd700;
+            font-size: 1.2rem;
+            border-top: 1px solid rgba(255, 105, 180, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-top: 10px;
+            color: #ff69b4;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff69b4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            background-size: contain;
+            opacity: 0;
+            animation: float 8s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 105, 180, 0.7);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            background: rgba(255, 105, 180, 0.9);
+            transform: scale(1.1);
+        }
+
+        .music-control i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .slide {
+                flex-direction: column;
+            }
+            
+            .slide-image, .slide-content {
+                width: 100%;
+            }
+            
+            .slide-image {
+                height: 300px;
+                border-radius: 20px 20px 0 0;
+            }
+            
+            .slide-content {
+                border-radius: 0 0 20px 20px;
+                padding: 25px;
+            }
+            
+            .slider {
+                height: 700px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .anniversary-title {
+                font-size: 2.5rem;
+            }
+            
+            .slide-content {
+                padding: 20px;
+            }
+            
+            .slide-title {
+                font-size: 1.7rem;
+            }
+            
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-music"></i>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1 class="anniversary-title">💖 Happy Anniversary My Love 💖</h1>
+            <div class="days-count">1096 DAYS DONE ✔ <span class="highlight">[ALHAMDULILLAH]</span></div>
+            <p class="subtitle">Three years, countless memories, endless love — and still, it feels like day one with you 💞</p>
+        </header>
+
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <!-- Slides will be inserted here by JavaScript -->
+            </div>
+            <button class="nav-btn prev" id="prevBtn">❮</button>
+            <button class="nav-btn next" id="nextBtn">❯</button>
+        </div>
+
+        <div class="slider-indicators" id="indicators">
+            <!-- Indicators will be inserted here by JavaScript -->
+        </div>
+
+        <footer>
+            <p>🙏 May Allah keep us together in love, understanding, and happiness — always and forever.</p>
+            <div class="signature">Forever yours — Sultan ♾💞</div>
+        </footer>
+    </div>
+
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="https://cs1.mp3.pm/download/30102472/QmExQjAvejFXSnRBTzNhUjNKeHdrZC9Id2d3aGRVUDhkOGk2bmtVaGI4aUVrYmc5Vk9DcjAwRFpOa1BjUnVObWZDd211Z2FwSWN4SEJQRVdPbERrZnlyZnUzd01zSHdldGJjVUdDSTNUeGw4ZW0rU05JU3p2cm1LZW45NkZRMys/Celine_Dion_-_My_Heart_Will_Go_On_Instrumental_(mp3.pm).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Create heart elements for background
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.opacity = Math.random() * 0.7 + 0.3;
+                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Background music control
+        const musicControl = document.getElementById('musicControl');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let isPlaying = false;
+
+        // Auto play music on load
+        window.addEventListener('load', () => {
+            createHearts();
+
+            // Try to play music automatically
+            backgroundMusic.play().then(() => {
+                isPlaying = true;
+                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+            }).catch(() => {
+                // Browser blocked autoplay – will need user interaction
+                isPlaying = false;
+                musicControl.innerHTML = '<i class="fas fa-music"></i>';
+                console.warn('Autoplay blocked by browser.');
+            });
+        });
+
+        musicControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicControl.innerHTML = '<i class="fas fa-music"></i>';
+            } else {
+                backgroundMusic.play();
+                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Slider content with images
+        const slides = [
+            {
+                title: "My Rameen, My Rani",
+                content: "My Rameen, my Rani, my world, my everything — today isn't just another date on the calendar… It's the day that changed my entire life. The day you came into my world and turned it into something magical ✨",
+                image: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                title: "Everything Made Sense",
+                content: "From the moment you became mine, everything started to make sense. Every heartbeat found a rhythm, every silence found a meaning, and every dream found a reason — you. 💕",
+                image: "https://img.freepik.com/free-photo/digital-art-style-mental-health-day-awareness-illustration_23-2151813313.jpg?t=st=1759657915~exp=1759661515~hmac=a9b55c731e1af825769ac45362163a76760790936ec4d3e31ec6a485f7a84711&w=1480"
+            },
+            {
+                title: "My Peace, My Home",
+                content: "You're not just my love… you're my peace, my home, and my whole heart. When I wake up, the first thought that crosses my mind is you. When I go to sleep, the last prayer I whisper is your name. 🌙",
+                image: "https://img.freepik.com/free-photo/3d-rendering-couple-valentine-day-heart_23-2151254207.jpg?t=st=1759658223~exp=1759661823~hmac=df30cb84b99e6ec15918d811bb96129868fe7616fcdd6d4f66af3f1cf62fca77&w=1480"
+            },
+            {
+                title: "How Lucky I Am",
+                content: "Sometimes I just sit and think — how lucky I am to have you. You're not only beautiful from the outside, but your soul… oh, it shines brighter than stars. Your kindness, your care, your patience, your love — everything about you feels like a blessing from Allah 💫",
+                image: "https://img.freepik.com/free-vector/marriage-proposal-love-concept_23-2147903372.jpg?t=st=1759658298~exp=1759661898~hmac=8b1e2da52ac5a4d7c495b41b5d56b92ce23b16e2ed4b9c489b414f782a9534bd&w=1480"
+            },
+            {
+                title: "My Reason to Smile",
+                content: "🌹 You are my reason to smile, my heartbeat, my every prayer. I can't imagine a single day without you. Even when we fight, my heart still beats only for you.",
+                image: "https://img.freepik.com/free-photo/cartoon-style-hugging-day-celebration_23-2151033305.jpg?t=st=1759658343~exp=1759661943~hmac=c8dfcb470d79d5b9a4f22c19f0dd815446c62610fb5d0190fd663df805f2bf17&w=1480"
+            },
+            {
+                title: "All I Want Is You",
+                content: "I might get angry sometimes, I might act childish — but deep down, all I want is you to stay with me forever. 💔 When you don't talk to me, everything feels empty… The world feels colorless, the air feels heavy, and nothing feels right.",
+                image: "https://img.freepik.com/free-photo/anime-style-scene-with-people-showing-affection-outdoors-street_23-2151500150.jpg?t=st=1759658418~exp=1759662018~hmac=653e5d2f99c453dd7aaae8fb2fff3ab79ae1b602fbc458a7d470f6ceb870a829&w=1480"
+            },
+            {
+                title: "Your Voice Is My Peace",
+                content: "Because your voice is my peace and your presence is my comfort ❤ 🌸 You're my favorite kind of happiness. You make me laugh when I want to cry. You bring calmness when my world feels messy.",
+                image: "https://img.freepik.com/free-photo/front-view-little-girl-with-microphone_23-2151061734.jpg?t=st=1759658498~exp=1759662098~hmac=4f00d57b97b3283985c4a0b72f11683e79ad907d800cdf92cf83c1cb590ddba5&w=1480"
+            },
+            {
+                title: "You Make Me Feel Loved",
+                content: "You make me feel loved in ways I never knew before. Every single detail about you is precious to me — The way you smile, the way you get jealous, the way you say 'hmm' when you're mad 😅 — all of it. I love it all. I love you, Rameen.",
+                image: "https://img.freepik.com/free-photo/3d-rendering-couple-valentine-day-heart_23-2151254174.jpg?t=st=1759658544~exp=1759662144~hmac=e8c072b6728f87cf8081bd0566664fc1022db92f94353de0ea9660b6eae0dc6c&w=1480"
+            },
+            {
+                title: "If I Could Pause Time",
+                content: "If I could, I'd pause time just to hold you a little longer, to see your face a little more, and to remind you how deeply I love you ❤",
+                image: "https://img.freepik.com/free-vector/flat-valentine-s-day-background_23-2149998797.jpg?t=st=1759658618~exp=1759662218~hmac=855e32e9637ec890d2fca9da0f61b298822fc8b546d9a631379350dfa1b0d21c&w=1480"
+            },
+            {
+                title: "Poetry for You",
+                content: `<div class="poem">
+                    "You came into my life like the first drop of rain,<br>
+                    Washing away my pain again and again.<br>
+                    Your smile became my endless spring,<br>
+                    My heart beats your name — that's the only song I sing." 🎶
+                </div>`,
+                image: "https://img.freepik.com/free-photo/3d-rendering-couple-valentine-day-heart_23-2151254195.jpg?t=st=1759658668~exp=1759662268~hmac=03563b1ed8ea08941d93916059628ea70187845fd1e237438dc79ba9eb4173c5&w=1480"
+            },
+            {
+                title: "You Chose to Stay",
+                content: "You've been with me through my moods, my mistakes, my highs, my lows… and still, you chose to stay. That's what makes you so rare. 🌷",
+                image: "https://img.freepik.com/free-vector/poster-design-with-boy-girl_1308-97018.jpg?t=st=1759658853~exp=1759662453~hmac=c942d1e742236175776cebff61dbbd7c406c2f99febe5a7a19762a87afb529da&w=1480"
+            },
+            {
+                title: "My Best Friend",
+                content: "You didn't just become my girlfriend — you became my best friend, my secret keeper, my strength, my home. When I lose hope, you become my motivation. When I fall apart, you silently hold me together with your love 💕",
+                image: "https://img.freepik.com/free-photo/scene-with-young-children-playing-nature-outdoors_23-2151486587.jpg?t=st=1759658986~exp=1759662586~hmac=0f93db961017b4e5f612ebd7a252277264ac63ceec7311389b12115ef1bdf6c7&w=1480"
+            },
+            {
+                title: "I Know I'm Not Perfect",
+                content: "I know I'm not perfect… Sometimes I say things that hurt you, sometimes my behavior makes you upset. But trust me, my intentions were never wrong. I never wanted to make you cry or doubt my love.",
+                image: "https://img.freepik.com/free-photo/portrait-young-sad-student-being-bullied-school_23-2151395755.jpg?t=st=1759659057~exp=1759662657~hmac=cbd616e9c0abd4862728efbe4c63a10c43c1963f19927fea0e14c526b10dceab&w=1480"
+            },
+            {
+                title: "I Love You Too Much",
+                content: "I just love you too much — maybe that's why I get too emotional, too possessive, too scared to lose you. But that's not because I don't trust you… it's because you mean the world to me. 🌍❤",
+                image: "https://img.freepik.com/free-photo/3d-rendering-couple-valentine-day-heart_23-2151254193.jpg?t=st=1759659151~exp=1759662751~hmac=95e42d78a5edb57a359af3242a1b060b91946fdd219cbf72646f045a6a32973c&w=1480"
+            },
+            {
+                title: "You Are My Forever",
+                content: "✨ You are my forever. I see my whole future with you — holding hands, sharing dreams, building a life together. I want to be there in every chapter of your life — not just as a lover, but as your biggest supporter, your comfort, your peace.",
+                image: "https://img.freepik.com/free-photo/medium-shot-people-hugging-nature_23-2150976898.jpg?t=st=1759659240~exp=1759662840~hmac=dc59ddd78ee04b567a01d210046263215103ea8815c629ab8b42796cd98e8c8d&w=1480"
+            },
+            {
+                title: "Husband and Wife",
+                content: "I dream of the day we'll look back at these messages as husband and wife, smiling at how far we've come together 🥹💍 If I could describe my love in one sentence, I'd say: 'Even if the world stops turning, my heart will still beat for you.' 💞",
+                image: "https://img.freepik.com/free-photo/3d-cartoon-style-character_23-2151034063.jpg?t=st=1759659281~exp=1759662881~hmac=45cc384dda82ec4e7cef0bb731ad6c850590891f52e3eb0bc7d0e8077624cb07&w=1480"
+            },
+            {
+                title: "Beyond Words",
+                content: "Sometimes words aren't enough to describe what I feel… Because how can words express something as deep as my love for you? It's beyond explanations, beyond limits, beyond time.",
+                image: "https://img.freepik.com/free-photo/3d-cartoon-back-school_23-2151676627.jpg?t=st=1759659338~exp=1759662938~hmac=f4a5036f4a3e00367fc919e3622cba82720949d41d7533b3b692bb9b3ac9f140&w=1480"
+            },
+            {
+                title: "You've Changed Me",
+                content: "You've changed me — completely. You've made me more caring, more patient, more alive. You made me realize what real love actually feels like. 💖",
+                image: "https://img.freepik.com/free-photo/scene-with-kids-playing-outdoors-nature_23-2151486520.jpg?t=st=1759659425~exp=1759663025~hmac=e7eff4a0d1c658697b36c4f1ebcec57c692731a42f0fd128d43058dff59a425f&w=1480"
+            },
+            {
+                title: "Another Poem",
+                content: `<div class="poem">
+                    "In your eyes, I found my peace,<br>
+                    In your arms, my world found ease.<br>
+                    With every smile, you heal my pain,<br>
+                    My love for you will never wane." 💌
+                </div>`,
+                image: "https://img.freepik.com/free-photo/portrait-young-student-with-book-education-day_23-2150980047.jpg?t=st=1759659562~exp=1759663162~hmac=05e83b27435737c35ac88b7e4de7c362507be8a8e381a080580645226cc13b5c&w=1480"
+            },
+            {
+                title: "My Promises to You",
+                content: `<div class="promise">
+                    <span class="promise-icon">💍</span>
+                    <span>I'll always stand by you — no matter how tough life gets.</span>
+                </div>
+                <div class="promise">
+                    <span class="promise-icon">💍</span>
+                    <span>I'll always make time for you, no matter how busy I am.</span>
+                </div>
+                <div class="promise">
+                    <span class="promise-icon">💍</span>
+                    <span>I'll never stop reminding you how much you mean to me.</span>
+                </div>
+                <div class="promise">
+                    <span class="promise-icon">💍</span>
+                    <span>And I'll never let you feel unloved — not for a single second.</span>
+                </div>`,
+                image: "https://img.freepik.com/free-photo/christmas-celebration-concept_23-2150976990.jpg?t=st=1759659157~exp=1759662757~hmac=705420a68114df089c7de1946edbc0926a3fb86d93117354a2d8da000f8a3bd8&w=1480"
+            },
+            {
+                title: "My Person",
+                content: "You are my person. My heart belongs to you and will always belong to you. Forever isn't long enough when it comes to you, my love Rameen. 💞",
+                image: "https://img.freepik.com/free-photo/medium-shot-people-hugging-nature_23-2150976900.jpg?t=st=1759659650~exp=1759663250~hmac=2614fcb335feeb79c5fd85c20345b7ac3cc4af8933164639ecf0d9667649dc3d&w=1480"
+            },
+            {
+                title: "A Small Sorry",
+                content: "💔 And lastly… a small sorry from the deepest part of my heart: If ever I made you feel unwanted, unloved, or unimportant — I'm truly, deeply sorry 😔 Sometimes my actions don't reflect my feelings, but please believe me — my heart never means to hurt you.",
+                image: "https://img.freepik.com/free-photo/3d-rendering-cartoon-boy-with-broken-heart_23-2150797596.jpg?t=st=1759659715~exp=1759663315~hmac=35e36f9f60b05a16ca4b03d0c6461391b39a34878b35e2d0e328993f77a47aff&w=1480"
+            },
+            {
+                title: "My Love Is Pure",
+                content: "My love for you is pure, real, and endless. I never think anything bad about you. I never want to lose you, not even for a moment. You're not just 'someone' in my life — You're the one I prayed for, the one I dream about, the one I want to grow old with 🌹",
+                image: "https://img.freepik.com/free-photo/romantic-people-being-love_23-2151103242.jpg?t=st=1759659647~exp=1759663247~hmac=f8e33bccf935aedde85a2ad63dd2faa0ab3a4b8d4b991d6d5a733ab132d479b2&w=1480"
+            },
+            {
+                title: "Thank You",
+                content: "💖 Happy Anniversary once again, my love. Thank you for being my peace, my heart, and my whole reason to smile. You are the best thing that ever happened to me — And I'll love you endlessly, completely, and forever. ✨ I love you beyond words, beyond time, beyond everything. ✨",
+                image: "https://img.freepik.com/free-photo/boxing-day-celebration-with-toy_23-2151013814.jpg?t=st=1759659828~exp=1759663428~hmac=28a2b82e472552e8cb75f5abcd273026c624862fae3975688fa8d84ff0179331&w=1480"
+            }
+        ];
+
+        // Initialize slider
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const indicatorsContainer = document.getElementById('indicators');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Create slides and indicators
+        slides.forEach((slide, index) => {
+            // Create slide
+            const slideElement = document.createElement('div');
+            slideElement.className = 'slide';
+            if (index === 0) slideElement.classList.add('active');
+            slideElement.innerHTML = `
+                <div class="slide-image" style="background-image: url('${slide.image}')"></div>
+                <div class="slide-content">
+                    <h2 class="slide-title">${slide.title}</h2>
+                    <div class="slide-text">${slide.content}</div>
+                </div>
+            `;
+            slider.appendChild(slideElement);
+
+            // Create indicator
+            const indicator = document.createElement('div');
+            indicator.className = 'indicator';
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        // Navigation functions
+        function goToSlide(index) {
+            // Update current slide
+            document.querySelectorAll('.slide').forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            currentSlide = index;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            document.querySelectorAll('.indicator').forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        // Auto-advance slides every 2 seconds
+        let slideInterval = setInterval(nextSlide, 2000);
+
+        // Pause auto-advance on hover
+        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 2000);
+        });
+
+        // Initialize
+        createHearts();
+    </script>
+</body>
+</html>
